@@ -1,7 +1,7 @@
 MouseK-driver
 ====
 
-A linux kernel module to control brikeyboardghtness using keyboard.
+A linux kernel module to control brightness using keyboard.
 This is an experiment to fiddle with drivers. It may not have any real life use case but was fun to create.
 It still has some bugs and needs a lot of improvements.
 
@@ -27,10 +27,7 @@ $ echo "v" > /dev/bright
 + "v" is to decrease brightness
 
 Aslo there is a shell scipt run it as that reads in input from user infinitely:
-```
-./b.sh
-```
-
+```./b.sh```
 
 ### Team Members
 * [Nishant Kumar](https://github.com/NishantKr97),16IT123
