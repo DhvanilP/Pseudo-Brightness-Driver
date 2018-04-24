@@ -1,4 +1,4 @@
-MouseK-driver
+Pseudo-Brightness-Driver
 ====
 
 A linux kernel module to control brightness using keyboard.
