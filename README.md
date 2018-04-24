@@ -1,60 +1,42 @@
 MouseK-driver
 ====
 
-A linux kernel module to control mouse pointer using keyboard.
+A linux kernel module to control brikeyboardghtness using keyboard.
 This is an experiment to fiddle with drivers. It may not have any real life use case but was fun to create.
 It still has some bugs and needs a lot of improvements.
 
 ### To run
 
 + Use `make` to generate .ko file
-+ Install using `insmod mousek.ko files`
-+ Go to `cd /dev` and create `sudo mknod /dev/mousek c 247 0` where 247 will be replaced by major number given while installing this module. This major number can be viewed in logs using `dmesg`
-+ Provide permission to this char file `sudo chmod 666 mousek`
-+ To remove `rmmod mousek`
++ Install using `insmod bright.ko files`
++ Go to `cd /dev` and create `sudo mknod /dev/bright c 242 0` where 242 will be replaced by major number given while installing this module. This major number can be viewed in logs using `dmesg`
++ Provide permission to this char file `sudo chmod 777 bright`
++ To remove `rmmod bright`
 + To view available kernel mods `lsmod`
 
-### To provide input to mouse
+### To provide input from keyboard
 
 Use the available commands:
 All of the commands are being fed into dev mousek char file. This can be done by echo in `/dev` directory.
 For example -
 ```sh
-$ echo "i dllwW" > mousek
-$ echo "ll" > mousek
-$ echo "x 434" > mousek
+$ echo "b" > /dev/bright
+$ echo "v" > /dev/bright
 ```
-First character will tell what command to follow
-i : instruction sequence followed by commands
-example 
-+ `echo "i udrrl" > mousek` or `echo "i ddrqQ" > mousek` where -
-  + "i" is command
-  + "l" for -10 pixel X axis
-  + "r" for 10 pixel X axis
-  + "d" for 10 pixel Y axis
-  + "u" for -10 pixel Y axis
-  + "q" for left click down
-  + "Q" for left click Up
-  + "w" for right click down
-  + "W" for right click Up
++ "b" is to increase brightness
++ "v" is to decrease brightness
+
+Aslo there is a shell scipt run it as that reads in input from user infinitely:
+```
+./b.sh
+```
 
 
-+ x : relative value in X Axis
-  + Example: `echo "x 250" > mousek`
-
-+ y : relative value in Y Axis
-  + Example: `echo "y 200" > mousek`
-
-+ l : left click , ll : double left click
-  + Example: `echo "l" > mousek` or `echo "ll" > mousek`
-
-+ r : right click
-  + Example: `echo "r" > mousek`
-
-
-### Bugs
-+ Input sequence command doesn't respect order of commands at the moment.
-+ Unable to move visible mouse pointer symbol on screen (for this, need to mess with x10 demon I guess).
+### Team Members
+* [Nishant Kumar](https://github.com/NishantKr97),16IT123
+* [Dhvanil Parikh](https://github.com/DhvanilP), 16IT217
+* [Suyash Ghuge](https://github.com/suyash0103), 16IT114
+* [Shreyas Shankar](https://github.com/shrey920), 16IT138
 
 ### License
-This kernel module comes with a GPL license.
+This kernel module comes with a MIT license.
